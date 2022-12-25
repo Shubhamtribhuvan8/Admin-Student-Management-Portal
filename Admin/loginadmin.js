@@ -12,7 +12,7 @@ function login() {
     if (email === storedEmail && password === storedPassword) {
       // Login successful
       alert('Welcome, ' + storedName + '!');
-      window.location.href="Admin.html"
+      window.location.href="index.html"
     } else {
       // Login failed
       alert('Incorrect email or password.');
