@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+              table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #8caacf;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0468aa;
+  color: white;
+  text-align: center;
+}
+h1{
+    text-align: center;
+}
+a{
+    color: rgb(17, 6, 6);
+    font-size: x-large;
+    font-family: cursive;
+}
+    </style>
+</head>
+<body>
+    <a href="/Student/student.html">Home</a>
+  <main>
+    <h1>
+        Assignment 
+    </h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody id="body">
+        <!-- Append your output to tbody -->
+      </tbody>
+    </table>
+  </main>
+  
+</html>
+<body>
+    <script>
+       var jobList = JSON.parse(localStorage.getItem("jobList")) || [];
+    display();
+    function display(){
+      jobList.map(function(elem){
+        var tr = document.createElement("tr");
+
+        var td1 = document.createElement("td");
+        td1.textContent = elem.Title;
+
+        var td2 = document.createElement("td");
+        td2.textContent = elem.Description;
+
+        // var t3=document.createElement("checkbox");
+        // t3.textContent=elem.t3;
+
+         localStorage.setItem("jobList",JSON.stringify(jobList));
+        tr.append(td1,td2);
+        document.getElementById("body").append(tr);
+    });
+    }
+
+      // const params = new URLSearchParams(location.search);
+      // const title = params.get('title');
+      // const description = params.get('description');
+      // document.getElementById('display-area').innerHTML = `Title: ${title}<br>Description: ${description}`;
+    </script>
+  

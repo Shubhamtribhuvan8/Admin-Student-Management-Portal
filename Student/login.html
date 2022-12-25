@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+  box-sizing: border-box;
+}
+h1{
+  text-align: center;
+  color: wheat;
+}
+input[type="text"],
+select,
+textarea {
+  width: 53%;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #2b619e;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+}
+div {
+  display: flex;
+  justify-content: space-around;
+}
+form {
+  margin: 0 auto;
+  margin-top: 266px;
+  width: 30%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 30px;
+}
+
+label {
+  font-size: 20px;
+}
+input[type="submit"]:hover {
+  background-color: #3973b6;
+}
+a{
+            color: white;
+    font-size: x-large;
+    font-family: cursive;
+}
+    </style>
+</head>
+<body style="background-image: url('https://wallpapercave.com/wp/wp9764004.png');">
+  <a href="student.html">Home</a>
+    <h1>Login for Student</h1>
+    <form id="login-form">
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email"><br>
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password"><br><br>
+        <button type="button" onclick="login()">Log In</button>
+      </form>
+
+</body>
+</html>
+  <script>
+    function login() {
+      // Get user input from form
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+  
+      // Retrieve user data from local storage
+      const storedName = localStorage.getItem('name');
+      const storedEmail = localStorage.getItem('email');
+      const storedPassword = localStorage.getItem('password');
+  
+      // Check if user input matches stored data
+      if (email === storedEmail && password === storedPassword) {
+        // Login successful
+        alert('Welcome, ' + storedName + '!');
+        window.location.href="student.html"
+      } else {
+        // Login failed
+        alert('Incorrect email or password.');
+      }
+    }
+  </script>
+  

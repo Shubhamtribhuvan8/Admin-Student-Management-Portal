@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+  box-sizing: border-box;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 53%;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #2b619e;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+}
+div {
+  display: flex;
+  justify-content: space-around;
+}
+h1{
+  text-align: center;
+  color: wheat;
+}
+form {
+  margin: 0 auto;
+  margin-top: 244px;
+  width: 30%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 30px;
+}
+
+label {
+  font-size: 20px;
+}
+input[type="submit"]:hover {
+  background-color: #3973b6;
+}
+a{
+            color: white;
+    font-size: x-large;
+    font-family: cursive;
+}
+    </style>
+</head>
+<body style="background-image: url('https://wallpapercave.com/wp/wp9764004.png');">
+  <a href="student.html">Home</a>
+    <h1>SignUp For Student</h1>
+<form id="signup-form">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="email">Email:</label><br>
+    <input type="text" id="email" name="email"><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password"><br><br>
+    <button type="button" onclick="signup()">Sign Up</button>
+  </form>
+  
+  <!-- JavaScript function to handle signup -->
+
+</body>
+</html>
+
+<script>
+    function signup() {
+      // Get user input from form
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+  
+      // Store user data in local storage
+      localStorage.setItem('name', name);
+      localStorage.setItem('email', email);
+      localStorage.setItem('password', password);
+      if(name=="" ||email=="" ||password==""){
+        alert("fill the form");
+      }
+      else{
+        window.location.href="login.html"
+      }
+
+    }
+    
+  </script>
+  

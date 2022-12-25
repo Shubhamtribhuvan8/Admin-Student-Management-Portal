@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         * {
+  box-sizing: border-box;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 53%;
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 0px;
+    box-sizing: border-box;
+    margin-top: 6px;
+    margin-bottom: 10px;
+    resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #2b619e;
+    color: white;
+    /* padding: 12px 20px; */
+    /* border: none; */
+    /* border-radius: 20px; */
+    cursor: pointer;
+    /* width: 100%; */
+    /* font-size: 20px; */
+    display: flex;
+}
+div {
+  display: flex;
+  justify-content: space-around;
+}
+form {
+  margin: 0 auto;
+  margin-top: 244px;
+  width: 30%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 30px;
+}
+
+label {
+  font-size: 20px;
+}
+input[type="submit"]:hover {
+  background-color: #3973b6;
+}
+a{
+    color: rgb(172, 162, 162);
+    font-size: x-large;
+    font-family: cursive;
+}
+h1{
+  text-align: center;
+  color: wheat;
+}
+.space{
+  display: flex;
+}
+    </style>
+</head>
+<body style="background-image: url('https://wallpapercave.com/wp/wp9764004.png');">
+  <div class="space">
+    <a href="loginadmin.html"> Admin Login </a>
+    <a href="signupadmin.html"> Admin SignUp </a>
+    <a href="index1.html"> Edit Assignment </a>
+    <a href="name.html"> Student CheckList </a>
+    <a href="index2.html"> Check Assignment </a>
+  </div>
+ 
+      <title>Assignment Manager</title>
+      <form action="" id="form">
+        <h2>Edit Assignment</h2>
+        <input placeholder="Enter Title" id="Title" name="Title" type="text" />
+        <input placeholder="Enter Description" type="Description" name="Description" id="Description" />
+        <input id="submit" type="submit" name="submit" value="Submit" />
+      </form>
+     
+</body>
+</html>
+  <script>
+    // function handleFormSubmit(event) {
+    //   event.preventDefault();
+    //   const title = document.getElementById('title').value;
+    //   const description = document.getElementById('description').value;
+    //   window.open(`index2.html?title=${title}&description=${description}`, '_blank');
+    // }
+    var jobList = JSON.parse(localStorage.getItem("jobList")) || [];
+
+    document.querySelector("form").addEventListener("submit",function(){
+      event.preventDefault();
+
+      var Title = document.getElementById("Title").value;
+      var Description = document.getElementById("Description").value;
+      // var textNode = "list";
+      // var id = textNode+""+c++;
+      
+      jobList.push({"Title":Title,"Description":Description});
+      localStorage.setItem("jobList",JSON.stringify(jobList));
+
+    });
+  </script>
+  

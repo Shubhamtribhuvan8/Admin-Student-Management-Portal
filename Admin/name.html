@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+   div {
+  display: flex;
+  justify-content: space-around;
+}
+form {
+  margin: 0 auto;
+  margin-top: 50px;
+  width: 30%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  padding: 30px;
+}
+
+label {
+  font-size: 20px;
+}
+
+table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+  margin: auto;
+  margin-top: 50px;
+  text-align: center;
+}
+
+table td,
+table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+table tr:nth-child(even) {
+  background-color: #8caacf;
+}
+
+table tr:hover {
+  background-color: #ddd;
+}
+
+table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #0468aa;
+  color: white;
+  text-align: center;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #2b619e;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 20px;
+}
+
+input[type="submit"]:hover {
+  background-color: #3973b6;
+}
+a{
+    color: rgb(17, 6, 6);
+    font-size: x-large;
+    font-family: cursive;
+}
+h1{
+  text-align: center;
+  color:#775311;
+}
+.space{
+  display: flex;
+}
+
+  </style>
+</head>
+
+<body>
+  <div class="space">
+    <a href="loginadmin.html">Admin Login</a>
+    <a href="signupadmin.html">Admin SignUp</a>
+    <a href="index1.html">Edit Assignment</a>
+    <a href="name.html">Student CheckList</a>
+    <a href="index2.html">Check Assignment</a>
+  </div>
+
+  <h1>Student CheckList</h1>
+  <form>
+    <label for="">Student Name</label><br />
+    <input id="name" type="text" placeholder="Student Name"/><br />
+    <label for="">Email </label><br />
+    <input id="Email" type="text" placeholder="Student Email" /><br />
+    <br />
+    <input type="submit" />
+  </form>
+  <table>
+    <!-- Dont change order of columns -->
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+    </tbody>
+  </table>
+
+  <div id="assi">
+
+  </div>
+</body>
+
+</html>
+<script>
+  var obj = JSON.parse(localStorage.getItem("todo")) || [];
+  displaytodo();
+
+  document.querySelector("form").addEventListener("submit", function () {
+    event.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var Email = document.getElementById("Email").value;
+
+    if (name == "" || Email == "") {
+      alert("Please Filled the Data!");
+    }
+    else {
+
+      obj.push({ name: name, Email: Email });
+      localStorage.setItem("todo", JSON.stringify(obj));
+      displaytodo();
+
+    }
+  });
+
+  function displaytodo() {
+    document.querySelector("tbody").textContent = "";
+    obj.map(function (e, index) {
+      var tr = document.createElement("tr");
+      var t1 = document.createElement("td");
+      var t2 = document.createElement("td");
+      var t3 = document.createElement("td");
+      t1.textContent = e.name;
+      t2.textContent = e.Email;
+
+  
+      
+
+      t3.textContent = "Delete";
+      t3.style.background = "green";
+      t3.addEventListener("click", function () {
+        console.log(obj);
+        obj.splice(index, 1);
+        localStorage.setItem("todo", JSON.stringify(obj));
+        console.log(obj);
+        displaytodo();
+      });
+      console.log(obj);
+      tr.append(t1, t2, t3);
+      document.querySelector("tbody").append(tr);
+      console.log(index);
+    });
+  }
+
+    //   window.open(`index3.html?Name=${Name}&Surname=${Surname}`, '_blank');
+    // }
+</script>
